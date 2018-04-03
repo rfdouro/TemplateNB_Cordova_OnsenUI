@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.web.clientproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/clientside-project/1">
+            <name>TemplateCordovaOnsenUI</name>
+        </data>
+        <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1">
+            <library name="jquery" version="3.3.1">
+                <file localPath="www/js/libs/jquery/jquery.js" path="jquery.js"/>
+                <file localPath="www/js/libs/jquery/jquery.min.js" path="jquery.min.js"/>
+            </library>
+            <library name="onsen" version="2.9.2">
+                <file localPath="www/js/libs/onsen/css/dark-onsen-css-components.css" path="css/dark-onsen-css-components.css"/>
+                <file localPath="www/js/libs/onsen/css/dark-onsen-css-components.min.css" path="css/dark-onsen-css-components.min.css"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/css/font-awesome.css" path="css/font_awesome/css/font-awesome.css"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/css/font-awesome.min.css" path="css/font_awesome/css/font-awesome.min.css"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/fonts/fontawesome-webfont.eot" path="css/font_awesome/fonts/fontawesome-webfont.eot"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/fonts/fontawesome-webfont.svg" path="css/font_awesome/fonts/fontawesome-webfont.svg"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/fonts/fontawesome-webfont.ttf" path="css/font_awesome/fonts/fontawesome-webfont.ttf"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/fonts/fontawesome-webfont.woff" path="css/font_awesome/fonts/fontawesome-webfont.woff"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/fonts/fontawesome-webfont.woff2" path="css/font_awesome/fonts/fontawesome-webfont.woff2"/>
+                <file localPath="www/js/libs/onsen/css/font_awesome/fonts/FontAwesome.otf" path="css/font_awesome/fonts/FontAwesome.otf"/>
+                <file localPath="www/js/libs/onsen/css/ionicons/css/ionicons.css" path="css/ionicons/css/ionicons.css"/>
+                <file localPath="www/js/libs/onsen/css/ionicons/css/ionicons.min.css" path="css/ionicons/css/ionicons.min.css"/>
+                <file localPath="www/js/libs/onsen/css/ionicons/fonts/ionicons.eot" path="css/ionicons/fonts/ionicons.eot"/>
+                <file localPath="www/js/libs/onsen/css/ionicons/fonts/ionicons.svg" path="css/ionicons/fonts/ionicons.svg"/>
+                <file localPath="www/js/libs/onsen/css/ionicons/fonts/ionicons.ttf" path="css/ionicons/fonts/ionicons.ttf"/>
+                <file localPath="www/js/libs/onsen/css/ionicons/fonts/ionicons.woff" path="css/ionicons/fonts/ionicons.woff"/>
+                <file localPath="www/js/libs/onsen/css/material-design-iconic-font/css/material-design-iconic-font.css" path="css/material-design-iconic-font/css/material-design-iconic-font.css"/>
+                <file localPath="www/js/libs/onsen/css/material-design-iconic-font/css/material-design-iconic-font.min.css" path="css/material-design-iconic-font/css/material-design-iconic-font.min.css"/>
+                <file localPath="www/js/libs/onsen/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot" path="css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot"/>
+                <file localPath="www/js/libs/onsen/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" path="css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg"/>
+                <file localPath="www/js/libs/onsen/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf" path="css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf"/>
+                <file localPath="www/js/libs/onsen/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff" path="css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff"/>
+                <file localPath="www/js/libs/onsen/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2" path="css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2"/>
+                <file localPath="www/js/libs/onsen/css/old-onsen-css-components.css" path="css/old-onsen-css-components.css"/>
+                <file localPath="www/js/libs/onsen/css/old-onsen-css-components.min.css" path="css/old-onsen-css-components.min.css"/>
+                <file localPath="www/js/libs/onsen/css/onsen-css-components.css" path="css/onsen-css-components.css"/>
+                <file localPath="www/js/libs/onsen/css/onsen-css-components.min.css" path="css/onsen-css-components.min.css"/>
+                <file localPath="www/js/libs/onsen/css/onsenui-core.css" path="css/onsenui-core.css"/>
+                <file localPath="www/js/libs/onsen/css/onsenui-core.min.css" path="css/onsenui-core.min.css"/>
+                <file localPath="www/js/libs/onsen/css/onsenui-fonts.css" path="css/onsenui-fonts.css"/>
+                <file localPath="www/js/libs/onsen/css/onsenui.css" path="css/onsenui.css"/>
+                <file localPath="www/js/libs/onsen/css/onsenui.min.css" path="css/onsenui.min.css"/>
+                <file localPath="www/js/libs/onsen/js/angular-onsenui.js" path="js/angular-onsenui.js"/>
+                <file localPath="www/js/libs/onsen/js/angular-onsenui.min.js" path="js/angular-onsenui.min.js"/>
+                <file localPath="www/js/libs/onsen/js/onsenui.js" path="js/onsenui.js"/>
+                <file localPath="www/js/libs/onsen/js/onsenui.min.js" path="js/onsenui.min.js"/>
+            </library>
+        </libraries>
+    </configuration>
+</project>

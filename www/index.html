@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
+  <meta http-equiv="Content-Security-Policy" content="data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+  <title>Template OnsenUI</title>
+
+
+  <link href="js/libs/onsen/css/onsenui.min.css" rel="stylesheet" type="text/css"/>
+  <link href="js/libs/onsen/css/onsen-css-components.min.css" rel="stylesheet" type="text/css"/>
+  <script src="js/libs/onsen/js/onsenui.min.js" type="text/javascript"></script>
+  <script src="js/libs/jquery/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+
+  <script>
+   $(function () {
+    // Initialization code
+    $('ons-button').on('click', function (e) {
+     ons.notification.alert('Button is tapped!');
+    });
+
+    window.fn = {};
+
+    window.fn.open = function () {
+     var menu = document.getElementById('menu');
+     menu.open();
+    };
+
+    window.fn.load = function (page) {
+     var content = document.getElementById('content');
+     var menu = document.getElementById('menu');
+     content.load(page)
+             .then(menu.close.bind(menu));
+    };
+   });
+  </script>
+ </head>
+ <body>
+
+
+ <ons-splitter>
+  <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+   <ons-page>
+    <ons-list>
+     <ons-list-item onclick="fn.load('home.html')" tappable>
+      <ons-icon icon="fa-home"></ons-icon>&nbsp;Home
+     </ons-list-item>
+     <ons-list-item onclick="fn.load('settings.html')" tappable>
+      <ons-icon icon="fa-gears"></ons-icon>&nbsp;Settings
+     </ons-list-item>
+     <ons-list-item onclick="fn.load('about.html')" tappable>
+      <ons-icon icon="fa-info"></ons-icon>&nbsp;About
+     </ons-list-item>
+    </ons-list>
+   </ons-page>
+  </ons-splitter-side>
+  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+ </ons-splitter>
+
+ <template id="home.html">
+  <ons-page id="helloworld-page">
+   <ons-toolbar>
+    <div class="left">
+     <ons-toolbar-button onclick="fn.open()">
+      <ons-icon icon="md-menu"></ons-icon>
+     </ons-toolbar-button>
+    </div>
+    <div class="center">
+     <ons-icon icon="fa-home"></ons-icon>
+    </div>
+    <div class="right">
+     <ons-toolbar-button>
+      <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+     </ons-toolbar-button>
+    </div>
+   </ons-toolbar>
+
+   <p style="text-align: center">
+   <ons-button onclick="ons.notification.alert('Button is tapped!');">Click me!</ons-button>
+   </p>
+
+   <script>
+    ons.getScriptPage().onInit = function () {
+     //console.log('This is a lifecycle hook!', this);
+    };
+   </script>
+  </ons-page>
+ </template>
+
+ <template id="settings.html">
+  <ons-page>
+   <ons-toolbar>
+    <div class="left">
+     <ons-toolbar-button onclick="fn.open()">
+      <ons-icon icon="md-menu"></ons-icon>
+     </ons-toolbar-button>
+    </div>
+    <div class="center">
+     Settings
+    </div>
+   </ons-toolbar>
+  </ons-page>
+ </template>
+
+ <template id="about.html">
+  <ons-page>
+   <ons-toolbar>
+    <div class="left">
+     <ons-toolbar-button onclick="fn.open()">
+      <ons-icon icon="md-menu"></ons-icon>
+     </ons-toolbar-button>
+    </div>
+    <div class="center">
+     About
+    </div>
+   </ons-toolbar>
+  </ons-page>
+ </template>
+</body>
+</html>
