@@ -224,6 +224,7 @@
 
   websocket.onclose = function (evt) {
    console.log(evt);
+   websocket = new WebSocket(wsUri);
   };
   
   websocket.onopen = function (evt) {
