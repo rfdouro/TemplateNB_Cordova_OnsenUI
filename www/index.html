@@ -12,24 +12,63 @@
 
   <link href="js/libs/onsen/css/onsenui.min.css" rel="stylesheet" type="text/css"/>
   <link href="js/libs/onsen/css/onsen-css-components.min.css" rel="stylesheet" type="text/css"/>
-  <script src="js/libs/onsen/js/onsenui.min.js" type="text/javascript"></script>
   <script src="js/libs/jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="js/libs/onsen/js/onsenui.min.js" type="text/javascript"></script>
+  <script src="js/libs/jsviews/jsrender.min.js" type="text/javascript"></script>
   <script type="text/javascript" src="cordova.js"></script>
 
   <script>
+
+   function btnClicaExc() {
+    ons.notification.alert('clicou ae 123!');
+   }
+
+   function mostraNome(nome) {
+    ons.notification.alert(nome);
+   }
+
+   var createAlertDialog = function (nome) {
+    var dialog = document.getElementById('my-alert-dialog');
+    var mess = document.getElementById('mess');
+    if (dialog) {
+     mess.innerHTML = 'Clicou em ' + nome;
+     dialog.show();
+    } else {
+     ons.createElement('alert-dialog.html', {append: true})
+             .then(function (dialog) {
+              dialog.show();
+             });
+    }
+   };
+   var hideAlertDialog = function () {
+    document
+            .getElementById('my-alert-dialog')
+            .hide();
+   };
+   var notify = function () {
+    ons.notification.alert('This dialog was created with ons.notification');
+   };
+   //explicado em 
+   //https://stackoverflow.com/questions/42375828/onsenui-select-element-with-jquery-js-ons-template-issue
+   document.addEventListener("init", function (event) {
+    if (event.target = "home") {
+     $('#btnClica').on('click', function (e) {
+      //ons.notification.alert('clicou ae!');
+      //btnClicaExc();
+     });
+    }
+   });
    $(function () {
+
     // Initialization code
     $('ons-button').on('click', function (e) {
      ons.notification.alert('Button is tapped!');
     });
-
     window.fn = {};
-
     window.fn.open = function () {
      var menu = document.getElementById('menu');
      menu.open();
     };
-
     window.fn.load = function (page) {
      var content = document.getElementById('content');
      var menu = document.getElementById('menu');
@@ -53,7 +92,7 @@
       <ons-icon icon="fa-gears"></ons-icon>&nbsp;Settings
      </ons-list-item>
      <ons-list-item onclick="fn.load('about.html')" tappable>
-      <ons-icon icon="fa-info"></ons-icon>&nbsp;About
+      <ons-icon icon="fa-info"></ons-icon>&nbsp;&nbsp;About
      </ons-list-item>
     </ons-list>
    </ons-page>
@@ -61,8 +100,21 @@
   <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
  </ons-splitter>
 
+ <template id="alert-dialog.html">
+  <ons-alert-dialog id="my-alert-dialog" modifier="rowfooter">
+   <div class="alert-dialog-title">Mensagem</div>
+   <div class="alert-dialog-content" id='mess'>
+
+   </div>
+   <div class="alert-dialog-footer">
+    <ons-alert-dialog-button onclick="hideAlertDialog()">Cancela</ons-alert-dialog-button>
+    <ons-alert-dialog-button onclick="hideAlertDialog()">OK</ons-alert-dialog-button>
+   </div>
+  </ons-alert-dialog>
+ </template>
+
  <template id="home.html">
-  <ons-page id="helloworld-page">
+  <ons-page id="home">
    <ons-toolbar>
     <div class="left">
      <ons-toolbar-button onclick="fn.open()">
@@ -81,11 +133,52 @@
 
    <p style="text-align: center">
    <ons-button onclick="ons.notification.alert('Button is tapped!');">Click me!</ons-button>
+   <ons-button id="btnClica">Teste</ons-button>
    </p>
 
+   <div id="result">
+    <ons-list>
+     <ons-list-item onclick="createAlertDialog('{{:name}}');">Name: {{:name}}</ons-list-item>
+    </ons-list>
+   </div>
+   <script id="theTmpl" type="text/x-jsrender">
+    <div>
+    <em>Name:</em> {{:name}}
+    {{if showNickname && nickname}}
+    (by <em>{{:nickname}}</em>)
+    {{/if}}
+    </div>
+   </script>
+
+
+
+
    <script>
+
+    var data = [{
+      "name": "Robert",
+      "nickname": "Bob",
+      "showNickname": true
+     },
+     {
+      "name": "Joao",
+      "nickname": "Carlos",
+      "showNickname": false
+     },
+     {
+      "name": "Robert",
+      "nickname": "Bob",
+      "showNickname": true
+     }];
     ons.getScriptPage().onInit = function () {
      //console.log('This is a lifecycle hook!', this);
+     $('#btnClica').on('click', function (e) {
+      //ons.notification.alert('clicou ae!');
+      btnClicaExc();
+     });
+     var template = $.templates("#result");
+     var htmlOutput = template.render(data);
+     $("#result").html(htmlOutput);
     };
    </script>
   </ons-page>
@@ -120,5 +213,28 @@
    </ons-toolbar>
   </ons-page>
  </template>
+
+ <script>
+  var wsUri = "ws://localhost:7000/websocket";
+  var websocket = new WebSocket(wsUri);
+
+  websocket.onerror = function (evt) {
+   console.log(evt);
+  };
+
+  websocket.onclose = function (evt) {
+   console.log(evt);
+  };
+  
+  websocket.onopen = function (evt) {
+   console.log(evt);
+  };
+
+  websocket.onmessage = function (evt) {
+   ons.notification.alert('' + evt.data, {
+    title: 'Mensagem do servidor'
+   });
+  };
+ </script>
 </body>
 </html>
